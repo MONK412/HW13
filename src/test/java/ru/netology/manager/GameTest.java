@@ -13,13 +13,24 @@ public class GameTest {
     Player player4 = new Player(10, "Nick", 14);
 
     @Test
-    public void notRegisteredPlayer() {
+    public void notRegisteredPlayer1() {
         game.register(player1);
         game.register(player2);
         game.register(player3);
         game.register(player4);
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Oleg", "Nick");
+        });
+    }
+
+    @Test
+    public void notRegisteredPlayer2() {
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
+            game.round("Alex", "Rustam");
         });
     }
 
